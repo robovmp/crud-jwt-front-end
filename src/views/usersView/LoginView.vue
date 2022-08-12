@@ -38,9 +38,7 @@ export default{
       this.$http.post('/auth/login', this.formLogin)
         .then(
           res =>{
-            console.log( res, 'Sucesso!' )
             const token = res.data.token
-            console.log( token )
 
             this.$store.dispatch( 'actionSetToken', token )
             localStorage.setItem( 'token', token )

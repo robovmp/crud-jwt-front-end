@@ -3,7 +3,8 @@
         <div id="welcome-box">
             <h1>Welcome</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus pariatur iste natus et ab qui beatae, recusandae velit ratione vel a reiciendis tenetur fugiat non quasi maxime. Facere, beatae rem?
+                This is a simple CRUD project about professions, aiming at the study of JWT.
+                Powered by Vue.js, Node.js and MongoDB. Using helper technologies like Vuex, Axios, JWT, and express.
             </p>
         </div>
     </div>
@@ -42,6 +43,8 @@ export default {}
         }
         p{
             font-weight: 500;
+            text-align: justify;
+            line-height: 1.5rem;
         }
     }
 

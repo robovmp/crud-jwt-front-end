@@ -1,5 +1,8 @@
 <template>
    <div id="posts">
+        <nav id="posts-nav">
+            <button @click.prevent="logout">Logout</button>
+        </nav>
       <form id="posts-form">
 
           <label>Name:</label>
@@ -62,7 +65,6 @@ export default {
                 remuneration: ''
 
             },
-            // renderPost: []
         }
     },
     computed:{
@@ -92,7 +94,6 @@ export default {
                 )
                 .then( 
                     res => {
-                        // console.log( res.data.mensagem )
                         alert( res.data.mensagem )
                         this.posts ={
                             id: '',
@@ -131,7 +132,6 @@ export default {
                 .catch(
                     err =>{
                         alert ( err.response )
-                        console.log(err)
                     }
                 )
 
@@ -162,7 +162,6 @@ export default {
         },
         editar(render){
             this.posts = render
-            console.log( render._id )
         },
         deletar(render){
             const config = {
@@ -185,10 +184,14 @@ export default {
                 .catch(
                     err =>{
                         alert ( err.response )
-                        console.log(err)
                     }
                 )
 
+        },
+        async logout(){
+            await this.$store.dispatch( 'actionSetToken', null )
+            localStorage.removeItem( 'token' )
+            this.$router.push('/')
         }
     }
 }
@@ -202,8 +205,30 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
 
+    &-nav{
+        width: 100%;
+        height: 70px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 10px;
+
+        background-color: $color-5;
+
+        button{
+            background-color: red;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: $color-2;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
 
     &-form{
         width: 50%;
