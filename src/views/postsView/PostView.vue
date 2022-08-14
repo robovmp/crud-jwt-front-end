@@ -118,7 +118,7 @@ export default {
                 )
                 .then( 
                     res => {
-                        alert( res.data.mensagem )
+                        console.log(res)
                         this.posts ={
                             _id: '',
                             name: '',
@@ -131,7 +131,7 @@ export default {
                 )
                 .catch(
                     err =>{
-                        alert ( err.response )
+                        console.log( err.response )
                     }
                 )
 
