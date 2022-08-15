@@ -18,38 +18,29 @@
 
       </form>
 
-      <table id="posts-table">
+      <div id="posts-table">
+            <div 
+                v-for="render in renderPost" 
+                :key="render._id"
+                id="posts-table-content"
+            >
 
-        <thead>
+            
+            <h2>{{ render.name }}</h2>
+            <div id="posts-table-content-infos">
+                <p><strong>Area:</strong> {{ render.area }}</p>
+                <p><strong>Position: </strong>{{ render.position }}</p>
+                <p><strong>Remuneration: </strong>R$ {{ render.remuneration }}</p>
+                
+                <div id="posts-table-content-btns">
+                    <button @click="editar(render)" ><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button @click="deletar(render)" style="background-color: red!important ;"><i class="fa-solid fa-square-minus"></i></button>
+                </div>
+                
+            </div>
 
-          <tr>
-            <th>NAME</th>
-            <th>AREA</th>
-            <th>POSITION</th>
-            <th>REMUNERATION</th>
-            <th>OPTIONS</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          <tr v-for="render in renderPost" :key="render._id">
-
-            <td>{{ render.name }}</td>
-            <td>{{ render.area }}</td>
-            <td>{{ render.position }}</td>
-            <td>R${{ render.remuneration }}</td>
-            <td>
-              <button @click="editar(render)" ><i class="fa-solid fa-pen-to-square"></i></button>
-              <button @click="deletar(render)" style="background-color: red!important;"><i class="fa-solid fa-square-minus"></i></button>
-            </td>
-
-          </tr>
-
-        </tbody>
-      
-      </table>
+            </div>
+      </div>
 
     </div>
 </template>
@@ -270,165 +261,119 @@ export default {
 
     &-table{
         width: 100%;
+        height: 100%;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
         padding: 25px;
         border-radius: 10px;
         background-color: $color-5;
-        margin-bottom: 20px;
 
-        thead{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            tr{
-                width: 100%;
+        &-content{
+            width: 40%;
+            height: 50%;
+            background-color: $color-2;
+            padding: 20px;
+            margin: 10px 10px;
+            border-radius: 8px;
+            border: 2px solid rgba($color: $color-1, $alpha: .5);
 
-                display: flex;
-                justify-content: space-around;
-                
-                th{
-                    background-color: $color-4;
-                    padding: 10px;
-                    border-radius: 8px;
-                    color: $color-2;
-                }
-            }
-        }
-
-        tbody{
-            width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-            font-weight: bold;
-            tr{
+            align-items: flex-start;
+
+            h2{
+                margin-bottom: 20px;
+            }
+
+            &-infos{
+                width: 100%;
+                p{
+                    margin-bottom: 15px;
+                }
+            }
+
+            &-btns{
                 width: 100%;
                 display: flex;
-                justify-content: space-around;
+                justify-content: flex-end;
 
-                td{
-                    
+                button{
+                    padding: 10px;
+                    margin: 0 5px;
                     border-radius: 8px;
+                    background-color: green;
+                    
+                    &:hover{
+                        cursor: pointer;
+                    }
 
-                    margin: 10px 0px;
-                    align-items: start;
-
-                    button{
-                        margin-left: 40px;
-                        padding: 10px;
-                        background-color: green;
-                        border-radius: 8px;
-                        font-weight: bold;
+                    svg{
                         color: $color-2;
-
-                        &:hover{
-                            cursor: pointer;
-                        }
                     }
                 }
             }
         }
+        
     }
 }
 
 @media (min-width: 320px) and (max-width: 480px){
-  #posts-nav{
+    #posts-nav{
         height: 40px;
         padding: 12px;
 
         button{
             padding: 8px;         
         }
-  }
+    }
   
-  #posts-form{
+    #posts-form{
     width: 100%;
-  }
+    }
 
-  #posts-table{
-        thead{
-        
-            tr{
-                th{
-                    padding: 5px;
-                    font-size: 10px;
-                    margin: 0 2px;
-                }
-            }
-        }
-
-        tbody{
-            tr{
-                td{
-                    padding: 5px;
-                    font-size: 10px;
-                    margin: 0 5px;
-                    display: flex;
-
-                    button{
-                        padding: 5px;
-                        margin: 0 5px;
-                    }
-                }
-            }
-           
+    #posts-table{
+        &-content{
+            width: 100%;
+            height: 100%;
         }
     }
 }
 
 @media (min-width: 481px) and (max-width: 768px){
-  #posts-nav{
+    #posts-nav{
         height: 60px;
         padding: 20px;
 
         button{
             padding: 10px;         
         }
-  }
+    }
   
-  #posts-form{
+    #posts-form{
     width: 100%;
-  }
+    }
 
-  #posts-table{
-        thead{
-        
-            tr{
-                th{
-                    padding: 6px;
-                    font-size: 16px;
-                    margin: 0 5px;
-                }
-            }
+    #posts-table{
+        &-content{
+            width: 80%;
+            height: 100%;
         }
-
-        tbody{
-            tr{
-                margin: 5px 0px;
-                td{
-                    padding: 5px;
-                    font-size: 12px;
-                    
-                    display: flex;
-
-                    button{
-                        padding: 6px;
-                        margin: 0 5px;
-                    }
-                }
-            }
-           
-        }
+    
     }
 }
 
 @media (min-width: 768px) and (max-width: 1000px){
     #posts-form{
         width: 80%;
+    }
+    #posts-table{
+        &-content{
+            width: 90%;
+            height: 100%;
+        }
+    
     }
 }
   
