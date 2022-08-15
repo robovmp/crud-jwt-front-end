@@ -39,10 +39,10 @@
             <td>{{ render.name }}</td>
             <td>{{ render.area }}</td>
             <td>{{ render.position }}</td>
-            <td>R$ {{ render.remuneration }}</td>
+            <td>R${{ render.remuneration }}</td>
             <td>
-              <button @click="editar(render)" >Edit</button>
-              <button @click="deletar(render)" style="background-color: red!important;">Remove</button>
+              <button @click="editar(render)" ><i class="fa-solid fa-pen-to-square"></i></button>
+              <button @click="deletar(render)" style="background-color: red!important;"><i class="fa-solid fa-square-minus"></i></button>
             </td>
 
           </tr>
@@ -334,4 +334,104 @@ export default {
         }
     }
 }
+
+@media (min-width: 320px) and (max-width: 480px){
+  #posts-nav{
+        height: 40px;
+        padding: 12px;
+
+        button{
+            padding: 8px;         
+        }
+  }
+  
+  #posts-form{
+    width: 100%;
+  }
+
+  #posts-table{
+        thead{
+        
+            tr{
+                th{
+                    padding: 5px;
+                    font-size: 10px;
+                    margin: 0 2px;
+                }
+            }
+        }
+
+        tbody{
+            tr{
+                td{
+                    padding: 5px;
+                    font-size: 10px;
+                    margin: 0 5px;
+                    display: flex;
+
+                    button{
+                        padding: 5px;
+                        margin: 0 5px;
+                    }
+                }
+            }
+           
+        }
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+  #posts-nav{
+        height: 60px;
+        padding: 20px;
+
+        button{
+            padding: 10px;         
+        }
+  }
+  
+  #posts-form{
+    width: 100%;
+  }
+
+  #posts-table{
+        thead{
+        
+            tr{
+                th{
+                    padding: 6px;
+                    font-size: 16px;
+                    margin: 0 5px;
+                }
+            }
+        }
+
+        tbody{
+            tr{
+                margin: 5px 0px;
+                td{
+                    padding: 5px;
+                    font-size: 12px;
+                    
+                    display: flex;
+
+                    button{
+                        padding: 6px;
+                        margin: 0 5px;
+                    }
+                }
+            }
+           
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1000px){
+    #posts-form{
+        width: 80%;
+    }
+}
+  
+
+
 </style>

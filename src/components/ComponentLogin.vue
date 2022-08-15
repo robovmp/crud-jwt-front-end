@@ -77,5 +77,18 @@ export default {
     }
 }
 
+@media (min-width: 320px) and (max-width: 480px){
+  #component-login-welcome, #component-login-view{
+    padding: 20px;
+  }
+
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+    #component-login-welcome, #component-login-view{
+        padding: 20px;
+    }
+}
+
 
 </style>

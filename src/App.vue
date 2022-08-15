@@ -15,11 +15,6 @@ export default{
   components:{
     ComponentLogin,
     ComponentHome
-},
-  data(){
-    return{
-      // token: this.$store.getters.getToken
-    }
   },
   computed:{
     token(){
@@ -43,6 +38,4 @@ export default{
     height: 100%;
   }
 }
-
-
 </style>
