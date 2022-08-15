@@ -8,6 +8,9 @@ import api from './plugins/axios'
 Vue.prototype.$http = api
 Vue.config.productionTip = false
 
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
+
 new Vue({
   router,
   store,
